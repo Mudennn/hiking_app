@@ -26,37 +26,49 @@ class _HikingAppState extends State<HikingApp> {
         ),
         // body: const Text('Hello Damian!'),
         body: Center(
-            child: currentIndex == 0 ? Container(
-          // untuk width screen
-          width: double.infinity,
-          height: double.infinity,
-          color: Colors.green[50], //background color untuk button
-          child: Row(
-            // alignment kepada row
-            mainAxisAlignment: MainAxisAlignment.center, //widget position
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.grey[100], backgroundColor: Colors.green[500]),
-                  onPressed: () {
-                    setState(() {
-                      buttonName = 'Clicked';
-                    });
-                  },
-                  child: Text(buttonName)),
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      buttonName = 'Clicked';
-                    });
-                  },
-                  child: Text(buttonName)),
-            ],
-          ),
-        ): const SizedBox() ) ,
+            child: currentIndex == 0
+                ? Container(
+                    // untuk width screen
+                    width: double.infinity,
+                    height: double.infinity,
+                    color: Colors.green[50], //background color untuk button
+                    child: Row(
+                      // alignment kepada row
+                      mainAxisAlignment:
+                          MainAxisAlignment.end, //widget position
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.grey[100],
+                                backgroundColor: Colors.green[500],
+                                ),
+                            onPressed: () {
+                              setState(() {
+                                buttonName = 'Clicked';
+                              });
+                            },
+                            child: Text(buttonName)),
+                        // ElevatedButton(
+                        //     onPressed: () {
+                        //       setState(() {
+                        //         buttonName = 'Clicked';
+                        //       });
+                        //     },
+                        //     child: Text(buttonName)),
+                      ],
+                    ),
+                  )
+                : const SizedBox()),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          backgroundColor: Colors.green[200],
+          selectedIconTheme: IconThemeData(
+            color: Colors.green[500],
+          ),
+          unselectedItemColor: Colors.grey[100],
           items: const [
             BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
             BottomNavigationBarItem(label: 'Explore', icon: Icon(Icons.search)),
